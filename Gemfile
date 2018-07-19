@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby '2.5.1'
-gem 'nokogiri'
 gem 'dotenv'
+gem 'nokogiri'
 gem 'gmail'
 gem 'json'
 gem 'pp'
