@@ -2,9 +2,9 @@
 
 This program is designed to scrap all email addresses of townhalls in the following French departments :
 
-- Loire Atlantique (44)
 - Bouches-du-Rhône (13)
 - Morbihan (56)
+- Loire Atlantique (44)
 
 It then send an email to each of these townhalls to raise their awareness about **The Hacking Project** , a French startup which seeks to
 re-shape education
