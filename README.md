@@ -2,7 +2,7 @@
 
 This program is designed to scrap all email addresses of townhalls in the following French departments :
 
-- Alpes-Maritimes (06)
+- Loire Atlantique (44)
 - Bouches-du-Rhône (13)
 - Morbihan (56)
 
