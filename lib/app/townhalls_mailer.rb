@@ -4,9 +4,7 @@ require 'gmail'
 
 class Mailer
 
-  @gmail = Gmail.connect("irtanos.thp@gmail.com",
-  password = ENV['GG_PSWD']
-  )
+  @gmail = Gmail.connect("irtanos.thp@gmail.com","GG_PSWD")
 
   @gmail.deliver do
     to "skagerazthp@gmail.com"
