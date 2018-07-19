@@ -3,10 +3,7 @@ class Follower
   require 'dotenv'
   require './townhalls_adder_to_db.rb'
   #la liste des comptes à follow
-  def initialize(user)
-    @user = user
-  end
-
+ 
   def connect
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["CONSUMER_KEY"]
@@ -15,6 +12,12 @@ class Follower
       config.access_token_secret = ENV["ACCESS_TOKEN_SECRET"]
     end
     @client
+  end
+
+  def handle
+    @user = []
+    CSV.foreach('../../db/scrapped_data.csv') { |row| @user << row[3] }
+    puts @user
   end
 
   def follow
@@ -33,7 +36,6 @@ class Follower
     end
   end
 end
-var = Follower.new(Scapper_twitter.new.user)
-puts Scapper_twitter.new.user.class
-var.connect
+
+var = Follower.new.connect
 var.follow
