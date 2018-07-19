@@ -1,0 +1,9 @@
+inherit_from:
+  - http://relaxed.ruby.style/rubocop.yml
+
+AllCops:
+  DisplayStyleGuide: true
+  DisplayCopNames: true
+  Exclude:
+    - 'Gemfile'
+
