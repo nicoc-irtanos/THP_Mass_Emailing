@@ -12,6 +12,7 @@ load "../../lib/app/scrapper.rb"
 load "../../lib/app/csv_adder.rb"
 load "../../lib/app/townhalls_adder_to_db.rb"
 load "../../lib/app/townhalls_mailer.rb"
+load "../../lib/app/townhalls_follower.rb"
 
 class Index
 
@@ -29,7 +30,7 @@ class Index
     puts "=> Appuie sur 1 si tu veux scrapper ces mails et les mettre dans un beau fichier CSV"
     puts "=> Appuie sur 2 si tu veux compiler dans une base de données les Twitters de nos chers maires"
     puts "=> Appuie sur 3 si tu veux envoyer un p'tit mail à nos chers maires"
-    puts "=> Appuie sur 4 si tu veux follow les maires conectés sur Twitter"
+    puts "=> Appuie sur 4 si tu veux follow les maires connectés sur Twitter"
     puts "=> Appuie sur 5 pour quitter"
 
     end
@@ -66,10 +67,10 @@ class Index
 
     puts "Voulez-vous relancer le programme ? Press 1 si oui, 2 pour exit "
     @restart = gets.chomp.to_i
-    #while @restart < 1 || @restart >2
+    while @restart < 1 || @restart >2
       puts "Veuillez entrer 1 ou 2 uniquement"
           @restart = gets.chomp.to_i
-    #end
+    end
      if @restart == 1
        Index.new
      elsif @restart == 2
