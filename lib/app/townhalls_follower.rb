@@ -51,4 +51,4 @@ class Follower
     follow_method
   end
 end
-Follower.new.boucle
+
