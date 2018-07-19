@@ -4,8 +4,11 @@ require 'twitter'
 require 'dotenv'
 require 'csv'
 Dotenv.load('../../.env')
+
 class Scapper_twitter
+
   attr_reader :user
+
   def connect
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["CONSUMER_KEY"]
@@ -58,4 +61,3 @@ class Scapper_twitter
     write(scrap(connect))
   end
 end
-Scapper_twitter.new.boucle

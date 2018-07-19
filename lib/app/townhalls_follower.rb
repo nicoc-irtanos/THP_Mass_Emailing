@@ -1,10 +1,13 @@
+require 'twitter'
+require 'dotenv'
+require 'csv'
+
 class Follower
-  require 'twitter'
-  require 'dotenv'
-  require 'csv'
+
+
   Dotenv.load('../../.env')
   #la liste des comptes à follow
- 
+
   def connect
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["CONSUMER_KEY"]
@@ -39,12 +42,10 @@ class Follower
     end
   end
 
-  def boucle 
+  def boucle
   var.connect
   var.handle
   var.follow_method
   end
 
 end
-Follower.new.boucle
-
