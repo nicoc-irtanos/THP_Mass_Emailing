@@ -4,6 +4,7 @@
 
 require 'twitter'
 require 'dotenv'
+require 'csv'
 Dotenv.load('../../.env')
 
 client = Twitter::REST::Client.new do |config|
@@ -14,22 +15,22 @@ client = Twitter::REST::Client.new do |config|
 end
 
 # input all the names here or grab them from your database or somewhere else.
-names = ['Dennis Paagman', 'alpeéanlnald.ldateuletiadt', 'Github']
+# créer un tableau avec l'array de commune en ajoutant devant "mairie"
+names = CSV.read('../../db/scrapped_data.csv')[1].map{|x| "mairie " + x}
+
 user = []
 names.each do |name|
   if client.user_search(name)[0] == nil
+    puts client.user_search(name)[0]
     user << " "
   else
-   user << client.user_search(name)[0]
+   user << client.user_search(name)[0].name
+   puts client.user_search(name)[0].name
   end
-end
+end 
 
-user.each do |user|
-  if user == " "
-    puts "user doesn't exist"
-  else
-    puts user.name
-  end
+# Ajoute l'array de compte twitter au csv
+CSV.open('../../db/scrapped_data.csv',"ab") do |csv| 
+ csv << user
 end
-
 
