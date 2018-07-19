@@ -6,7 +6,6 @@ require 'csv'
 
 class Follower
   Dotenv.load('../../.env')
-  # la liste des comptes à follow
 
   def connect
     @client = Twitter::REST::Client.new do |config|
@@ -30,7 +29,9 @@ class Follower
     # créer une liste de handle valide
     # n'ajoute pas les handle vides
     @user.each do |user|
-      if user == " "
+      #if user = " ", car lorsque l'on a créer le csv,
+      #on faisait comme ça lorsque que la recherche ne donnait rien
+      if user == " " || nil
         puts "user doesn't exist"
       else
         puts user
