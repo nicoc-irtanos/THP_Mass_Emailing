@@ -16,6 +16,6 @@ François Dasylva, Jérémy Rak, Hadia Bouria, Nicolas Zhao, Valérie  Chang, Ni
 ## How to use it?
 
 Clone it to your local machine with ```git clone```, go into the corresponding directory on your machine and run ```bundle install```
-
+You should have a working .env to run twitter module, go to townhalls_adder_to_db.rb or townhalls_follower.rb to configure yours.
 
 Have fun !!! :+1: :+1: :+1:
