@@ -29,9 +29,11 @@ class Follower
     # créer une liste de handle valide
     # n'ajoute pas les handle vides
     @user.each do |user|
-      #if user = " ", car lorsque l'on a créer le csv,
-      #on faisait comme ça lorsque que la recherche ne donnait rien
-      if user == " " || nil
+      # if user = " ", à l'origine
+      # car lorsque l'on a créer le csv,
+      # on faisait comme ça lorsque que la recherche ne donnait rien
+      # mais pour une raison inconnue c'est des nil dans le csv
+      if user.nil?
         puts "user doesn't exist"
       else
         puts user
@@ -51,4 +53,3 @@ class Follower
     follow_method
   end
 end
-
