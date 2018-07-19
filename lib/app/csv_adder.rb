@@ -10,15 +10,11 @@ load "scrapper.rb"
 def csv_adding
   scrap_it = Scrapper.new
   scrap_it.perform
-
-  print scrap_it.get_depts
-  print scrap_it.get_names
-  print scrap_it.get_emails
-
-  CSV.open("../../db/scrapped_data.csv", "w") do |csv|
-    csv << scrap_it.get_depts
-    csv << scrap_it.get_names
-    csv << scrap_it.get_emails
+ 
+  
+  csv = CSV.open("../../db/scrapped_data.csv", "a+")  
+  for x in 0..(scrap_it.get_depts.length - 1)
+    csv << [scrap_it.get_depts[x], scrap_it.get_names[x], scrap_it.get_emails[x]]
   end
 end
 
