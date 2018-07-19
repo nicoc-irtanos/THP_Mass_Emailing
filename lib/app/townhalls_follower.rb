@@ -46,6 +46,5 @@ class Follower
   end
 
 end
-
-var = Follower.new.boucle
+Follower.new.boucle
 
