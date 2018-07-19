@@ -2,6 +2,7 @@ class Follower
   require 'twitter'
   require 'dotenv'
   require './townhalls_adder_to_db.rb'
+  #la liste des comptes à follow
   def initialize(user)
     @user = user
   end
