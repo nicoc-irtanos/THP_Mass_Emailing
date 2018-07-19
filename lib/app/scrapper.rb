@@ -11,32 +11,26 @@ class Scrapper
     @city_names = []
     @city_depts = []
     @city_emails = []
-    @dept1_link = "http://annuaire-des-mairies.com/bouches-du-rhone.html"
-    @dept2_link = "http://www.annuaire-des-mairies.com/morbihan.html"
-    @dept3_link = "http://www.annuaire-des-mairies.com/loire-atlantique.html"
+    @dept_links = ["http://annuaire-des-mairies.com/bouches-du-rhone.html", "http://www.annuaire-des-mairies.com/morbihan.html", "http://www.annuaire-des-mairies.com/loire-atlantique.html"]
   end
 
   # Code qui récupère toutes les url de villes d'un département.
-  def get_all_the_urls_of_an_area(dlink)
-    page = Nokogiri::HTML(open(dlink))
-    page.css('.lientxt').each do |url|
-      web = "http://annuaire-des-mairies.com"
-      web << url['href'][1..-1]
-      @city_urls << web
-    end
-  end
-
-  # Code qui récupère tous les noms de villes d'un département.
-  def get_the_name_of_a_townhal_from_its_webpage(dlink)
-    page = Nokogiri::HTML(open(dlink))
-    page.css('.lientxt').each do |name|
-      @city_names << name.text
+  def take_all_the_urls_of_an_area
+    @dept_links.each do |dlink|
+      page = Nokogiri::HTML(open(dlink))
+      page.css('.lientxt').each do |url|
+        web = "http://annuaire-des-mairies.com"
+        web << url['href'][1..-1]
+        @city_urls << web
+        @city_names << url.text # Code qui récupère tous les noms de villes d'un département.
+      end
     end
   end
 
   # Code qui récupère le nom du département à partir de l'url d'une mairie
-  def get_all_areanames_from_webpages
+  def take_all_areanames_from_webpages
     @city_urls.each do |city_url|
+      take_the_email_of_a_townhal_from_its_webpage(city_url) # Boucle qui récupère toutes les adresses email des mairies des départements
       page = Nokogiri::HTML(open(city_url))
       page.css('body > div > main > section.text-center.well.well-sm > div > div > div > p.lead > a').each do |dept|
         @city_depts << dept.text
@@ -45,41 +39,34 @@ class Scrapper
   end
 
   # Code qui récupère l'adresse email à partir de l'url d'une mairie
-  def get_the_email_of_a_townhal_from_its_webpage(url_array)
+  def take_the_email_of_a_townhal_from_its_webpage(url_array)
     doc = Nokogiri::HTML(open(url_array))
     doc.xpath('/html/body/div/main/section[2]/div/table/tbody/tr[4]/td[2]').each do |email|
       @city_emails << email.text
     end
   end
 
-  # Boucle qui récupère toutes les adresses email des mairies des départements
-  def get_all_emails_from_an_area_townhalls
-    @city_urls.each do |city_url|
-      get_the_email_of_a_townhal_from_its_webpage(city_url)
-    end
-  end
-  
-  def get_names
-    return @city_names
+  # Méthode retournant l'array contenant les noms de villes
+  def take_names
+    @city_names
   end
 
-  def get_depts
-    return @city_depts
+  # Méthode retournant l'array contenant les départements
+  def take_depts
+    @city_depts
   end
 
-  def get_emails
-    return @city_emails
+  # Méthode retournant l'array contenant les mails
+  def take_emails
+    @city_emails
   end
 
-  # Boucle Bonus qui enregistre les données scrappées dans un array d'hash et l'affiche
+  # Méthode à appeler sur la classe pour lancer le programme de scrapping
   def perform
-    get_all_the_urls_of_an_area(@dept1_link)
-    get_all_the_urls_of_an_area(@dept2_link)
-    get_all_the_urls_of_an_area(@dept3_link)
-    get_all_areanames_from_webpages
-    get_the_name_of_a_townhal_from_its_webpage(@dept1_link)
-    get_the_name_of_a_townhal_from_its_webpage(@dept2_link)
-    get_the_name_of_a_townhal_from_its_webpage(@dept3_link)
-    get_all_emails_from_an_area_townhalls
+    puts "\nVeuillez patienter pendant que nous traitons votre requête de scrapping !\n"
+    take_all_the_urls_of_an_area
+    puts "Cette opération peut durer un long moment selon la configuration de votre matériel..."
+    take_all_areanames_from_webpages
+    puts "Le scrapping est maintenant terminé."
   end
 end
