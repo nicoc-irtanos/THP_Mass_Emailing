@@ -19,6 +19,7 @@ class Follower
   end
 
   def handle
+    # lis la 4 ème colone  dans le fichier csv et l'ajoute dans un tableau
     @user = []
     CSV.foreach('../../db/scrapped_data.csv') { |row| @user << row[3] }
     puts @user
@@ -26,12 +27,14 @@ class Follower
 
   def follow_method
     list = []
+    # créer une liste de handle valide
+    # n'ajoute pas les handle vides
     @user.each do |user|
       if user == " "
         puts "user doesn't exist"
       else
-        puts user.name
-        list << user.screen_name
+        puts user
+        list << user
       end
     end
 
@@ -42,8 +45,9 @@ class Follower
   end
 
   def boucle
-    var.connect
-    var.handle
-    var.follow_method
+    connect
+    handle
+    follow_method
   end
 end
+Follower.new.boucle

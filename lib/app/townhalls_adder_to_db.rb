@@ -61,3 +61,4 @@ class Scapper_twitter
     write(scrap(connect))
   end
 end
+Scapper_twitter.new.boucle
