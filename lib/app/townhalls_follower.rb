@@ -33,7 +33,8 @@ class Follower
       # car lorsque l'on a créer le csv,
       # on faisait comme ça lorsque que la recherche ne donnait rien
       # mais pour une raison inconnue c'est des nil dans le csv
-      if user.nil?
+      # enfin ça dépend de la personne qui le lance on a l'impression
+      if user == " " || nil
         puts "user doesn't exist"
       else
         puts user
