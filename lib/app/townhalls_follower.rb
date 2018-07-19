@@ -21,7 +21,6 @@ class Follower
     # lis la 4 ème colone  dans le fichier csv et l'ajoute dans un tableau
     @user = []
     CSV.foreach('../../db/scrapped_data.csv') { |row| @user << row[3] }
-    puts @user
   end
 
   def follow_method
