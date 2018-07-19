@@ -1,12 +1,12 @@
+# frozen_string_literal: true
+
 require 'twitter'
 require 'dotenv'
 require 'csv'
 
 class Follower
-
-
   Dotenv.load('../../.env')
-  #la liste des comptes à follow
+  # la liste des comptes à follow
 
   def connect
     @client = Twitter::REST::Client.new do |config|
@@ -31,10 +31,9 @@ class Follower
         puts "user doesn't exist"
       else
         puts user.name
-        list <<  user.screen_name
+        list << user.screen_name
       end
     end
-
 
     list.each do |commune|
       @client.follow(commune)
@@ -43,9 +42,8 @@ class Follower
   end
 
   def boucle
-  var.connect
-  var.handle
-  var.follow_method
+    var.connect
+    var.handle
+    var.follow_method
   end
-
 end
