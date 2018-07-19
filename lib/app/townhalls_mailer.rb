@@ -1,5 +1,5 @@
 require 'dotenv'
-Dotenv.load
+Dotenv.load('../../.env')
 require 'gmail'
 
 class Mailer
