@@ -39,9 +39,13 @@ class Follower
     end
   end
 
+  def boucle 
+  var.connect
+  var.handle
+  var.follow_method
+  end
+
 end
 
-var = Follower.new
-var.connect
-var.handle
-var.follow_method
+var = Follower.new.boucle
+
