@@ -20,7 +20,7 @@ class Adding
     puts "Les données scrappées vont être enregistrées dans le fichier \"scrapped_data.csv\"..."
 
     @csv = CSV.open("../../db/scrapped_data.csv", "a+")
-    (0..scrap_it.get_depts.length - 1).each do |x| # Boucle enregistrant les données scrappées dans le fichier csv
+    (0..scrap_it.take_depts.length - 1).each do |x| # Boucle enregistrant les données scrappées dans le fichier csv
       @csv << [scrap_it.take_depts[x], scrap_it.take_names[x], scrap_it.take_emails[x]]
     end
 
