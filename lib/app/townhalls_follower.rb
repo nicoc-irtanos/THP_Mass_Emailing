@@ -34,7 +34,6 @@ class Follower
 
 
     list.each do |commune|
-      puts @client.class
       @client.follow(commune)
       puts commune
     end

@@ -25,12 +25,13 @@ class Scapper_twitter
     names = col_data.map{ |x| "mairie " + x }
     @user = []
     names.each do |name|
-      if client.user_search(name)[0].nil?
-        puts client.user_search(name)[0]
+      first_result = client.user_search(name)[0]
+      if first_result.nil?
+        puts " "
         @user << " "
       else
-        @user << client.user_search(name)[0].screen_name
-        puts client.user_search(name)[0].screen_name
+        @user << first_result.screen_name
+        puts first_result.name
       end
     end
     @user
