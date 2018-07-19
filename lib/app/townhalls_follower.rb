@@ -1,11 +1,12 @@
 class Follower
   require 'twitter'
   require 'dotenv'
-  require './townhalls_adder_to_db.rb'
+  require 'csv'
+  Dotenv.load('../../.env')
   #la liste des comptes à follow
  
   def connect
-    client = Twitter::REST::Client.new do |config|
+    @client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["CONSUMER_KEY"]
       config.consumer_secret     = ENV["CONSUMER_KEY_SECRET"]
       config.access_token        = ENV["ACCESS_TOKEN"]
@@ -20,22 +21,28 @@ class Follower
     puts @user
   end
 
-  def follow
-    handle = []
+  def follow_method
+    list = []
     @user.each do |user|
       if user == " "
         puts "user doesn't exist"
       else
-        puts "@" + user.name
-        handle << "@" + user.name
+        puts user.name
+        list <<  user.screen_name
       end
     end
 
-    handle.each do |commune|
+
+    list.each do |commune|
+      puts @client.class
       @client.follow(commune)
+      puts commune
     end
   end
+
 end
 
-var = Follower.new.connect
-var.follow
+var = Follower.new
+var.connect
+var.handle
+var.follow_method
