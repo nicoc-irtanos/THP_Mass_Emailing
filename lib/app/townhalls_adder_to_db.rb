@@ -1,4 +1,6 @@
 # encoding: UTF-8
+#TODO faire le parser du csv pour obtenir un array des email
+#ajouter au csv la colone des handles twitter
 
 require 'twitter'
 require 'dotenv'
