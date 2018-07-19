@@ -5,6 +5,7 @@ require 'dotenv'
 require 'csv'
 Dotenv.load('../../.env')
 class Scapper_twitter
+  attr_reader :user
   def connect
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["CONSUMER_KEY"]
@@ -19,29 +20,39 @@ class Scapper_twitter
   # créer un tableau avec l'array de commune en ajoutant devant "mairie"
   # return un tableau
   def scrap(client)
-  names = CSV.read('../../db/scrapped_data.csv')[1].map{|x| "mairie " + x}
-  user = []
-    names.each do |name|
-      if client.user_search(name)[0] == nil
-        puts client.user_search(name)[0]
-        user << " "
-      else
-      user << client.user_search(name)[0].screen_name
-      puts client.user_search(name)[0].screen_name
+    col_data = []
+    CSV.foreach('../../db/scrapped_data.csv') {|row| col_data << row[1]}
+    puts col_data
+    names = col_data.map{|x| "mairie " + x}
+    @user = []
+      names.each do |name|
+        if client.user_search(name)[0] == nil
+          puts client.user_search(name)[0]
+          @user << " "
+        else
+        @user << client.user_search(name)[0].screen_name
+        puts client.user_search(name)[0].screen_name
+        end
       end
-    end
-    return user
+      return @user
   end 
   
   def write(user)
     # Ajoute l'array de compte twitter au csv
-    CSV.open('../../db/scrapped_data.csv',"ab") do |csv| 
-    csv << user
+    i = 0
+    fucking_ancien_csv = []
+    CSV.foreach('../../db/scrapped_data.csv') do |row| 
+     fucking_ancien_csv << row
     end
+    csv = CSV.open("../../db/scrapped_data.csv", "a+")  
+  for x in 0..(scrap_it.get_depts.length - 1)
+    csv << [scrap_it.get_depts[x], scrap_it.get_names[x], scrap_it.get_emails[x]]
   end
-  
+
+  end
+  #lance tout
   def boucle
     write(scrap(connect))
   end
 end
-Scapper_twitter.new.boucle
+Scapper_twitter.new.write(["auieaei","aeiaeiaeiiueaei","aiueaiueauiea","aeiuaeiuaie"])
