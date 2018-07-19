@@ -16,6 +16,8 @@ François Dasylva, Jérémy Rak, Hadia Bouria, Nicolas Zhao, Valérie  Chang, Ni
 ## How to use it?
 
 Clone it to your local machine with ```git clone```, go into the corresponding directory on your machine and run ```bundle install```
-You should have a working .env to run twitter module, go to townhalls_adder_to_db.rb or townhalls_follower.rb to configure yours.
+You should have working .env to run twitter and gmail modules , go to the corresponding .env files (check the path used in the code) and also don't forget to change ```townhalls_adder_to_db.rb```, ```townhalls_follower.rb``` and ```townhalls_mailer.rb``` to configure everything accordingly.
+
+Once everything is configured, just run the file ```app.rb``` to start emailing townhalls!
 
 Have fun !!! :+1: :+1: :+1:
