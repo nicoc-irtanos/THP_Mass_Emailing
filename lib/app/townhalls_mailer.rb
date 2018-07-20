@@ -1,5 +1,5 @@
 require 'dotenv'
-Dotenv.load('../../.env')
+Dotenv.load('.env')
 require 'gmail'
 require 'csv'
 
@@ -7,10 +7,10 @@ class Mailer
 
   def mass_emailing
     @townhalls_names = [] # Mets les éléments de la deuxième colonne du CSV dans une array
-    CSV.foreach("../../db/scrapped_data.csv") { |row| @townhalls_names << row[1] }
+    CSV.foreach("./db/scrapped_data.csv") { |row| @townhalls_names << row[1] }
 
     @townhalls_emails = []
-    CSV.foreach("../../db/scrapped_data.csv") { |row| @townhalls_emails << row[2] }
+    CSV.foreach("./db/scrapped_data.csv") { |row| @townhalls_emails << row[2] }
 
     @townhalls_names.each(&:capitalize!) # Met en forme le nom des mairies
 

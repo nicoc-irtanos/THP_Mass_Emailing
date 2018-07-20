@@ -1,13 +1,3 @@
-require 'rubygems'
-require 'nokogiri'
-require 'open-uri'
-require 'json'
-require 'pp'
-require "google_drive"
-require 'csv'
-require 'dotenv'
-Dotenv.load(".env")
-
 class Index
 
  attr_accessor :user_choice
