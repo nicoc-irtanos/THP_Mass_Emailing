@@ -20,7 +20,7 @@ class Follower
   def handle
     # lis la 4 ème colone  dans le fichier csv et l'ajoute dans un tableau
     @user = []
-    CSV.foreach('./db/scrapped_data.csv') { |row| @user << row[3] }
+    CSV.foreach('db/scrapped_data.csv') { |row| @user << row[3] }
   end
 
   def follow_method
@@ -42,8 +42,12 @@ class Follower
     end
 
     list.each do |commune|
-      @client.follow(commune)
-      puts commune
+      begin
+        @client.follow!(commune)
+        puts commune
+      rescue Exception, NotFound, Forbidden
+      next
+      end
     end
   end
 

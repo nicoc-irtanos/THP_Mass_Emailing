@@ -21,7 +21,7 @@ class ScrapperTwitter
   def scrap(client)
     col_data = []
 
-    CSV.foreach('./db/scrapped_data.csv') { |row| col_data << row[1] } # prend la 2 ème colone du csv et la met dans le tableau col_data
+    CSV.foreach('db/scrapped_data.csv') { |row| col_data << row[1] } # prend la 2 ème colone du csv et la met dans le tableau col_data
     puts col_data
 
     names = col_data.map{ |x| "mairie " + x } # Pour chaque élément de col data on ajoute mairie devant

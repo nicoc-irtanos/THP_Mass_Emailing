@@ -21,7 +21,6 @@ class Index
     @user_choice = gets.chomp.to_i
     reload = AppDone.new
     if @user_choice == 1 # appelle le scrapper.rb qui va chercher les mails des mairies et les mettre dans un csv
-      puts "Cette opération prend du temps, allez boire un coca en attendant..."
       @csv_ajout = Adding.new # lance le scrapping
       @csv_ajout.csv_creation # lance la creation du CSV
       puts "Operation terminée, n'oubliez pas mon pourboire svp"
