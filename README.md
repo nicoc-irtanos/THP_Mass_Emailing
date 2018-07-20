@@ -35,10 +35,12 @@ the lib directory contains two sub-directories:
 To ensure smooth operations ;-), please follow all below instructions :
 
 In your terminal, please go into the directory where you would like to install this program and type:<br>
+```
 git clone https://github.com/nicolasculerier/THP_Mass_Emailing.git<br>
 cd THP_Mass_Emailing<br>
 bundle install<br>
-touch .env<br>
+touch .env<br> 
+```
 Open .env with your favorite text editor and paste the below text. Make sure to put your access data before saving and quitting that file.
 ```
 ACCESS_TOKEN="replace_this_text_with_your_twitter_key"
@@ -70,19 +72,18 @@ Please ensure that your command line is still located in the THP_Mass_Emailing d
 ``` ruby app.rb```
 
 and let yourself be guided by the menu…<br>
-Yes, it’s as simple as that… <br>
-Crazy, right ?!
+Yes, it’s as simple as that… Crazy, right ?!
 
 Several Ruby Gems have been used to make that dream come true.<br>
 Please clap your hands for :<br>
-<a href=“https://github.com/motdotla/dotenv”>dotenv</a><br>
-<a href=“https://github.com/sparklemotion/nokogiri”>nokogiri</a><br>
-<a href=“https://github.com/gmailgem/gmail”>gmail</a><br>
+<a href="https://github.com/motdotla/dotenv">dotenv</a><br>
+<a href="https://github.com/sparklemotion/nokogiri">nokogiri</a><br>
+<a href="https://github.com/gmailgem/gmail">gmail</a><br>
 pp<br>
-<a href=“https://github.com/ruby/csv”>csv</a><br>
-<a href=“https://github.com/sferik/twitter”>twitter</a><br>
-<a href=“https://github.com/rubocop-hq/rubocop”>rubocop</a><br>
-<a href=“https://github.com/pry/pry”>pry</a><br>
+<a href="https://github.com/ruby/csv">csv</a><br>
+<a href="https://github.com/sferik/twitter">twitter</a><br>
+<a href="https://github.com/rubocop-hq/rubocop">rubocop</a><br>
+<a href="https://github.com/pry/pry">pry</a><br>
 and of course, Ruby version: **2.5.1**)
 
 ## Number of emails sent, Twitter handle and script of the email
