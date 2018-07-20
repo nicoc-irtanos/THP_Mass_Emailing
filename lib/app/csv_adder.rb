@@ -5,7 +5,7 @@ require 'json'
 require 'pp'
 require "google_drive"
 require 'csv'
-load "../../lib/app/scrapper.rb"
+require_relative "./scrapper.rb"
 
 # Classe permettant d'enregister les données scrappées dans un fichier csv
 class Adding

@@ -5,7 +5,7 @@ require 'dotenv'
 require 'csv'
 
 class Follower
-  Dotenv.load('../../.env')
+  Dotenv.load('.env')
 
   def connect
     @client = Twitter::REST::Client.new do |config|
@@ -20,7 +20,7 @@ class Follower
   def handle
     # lis la 4 ème colone  dans le fichier csv et l'ajoute dans un tableau
     @user = []
-    CSV.foreach('../../db/scrapped_data.csv') { |row| @user << row[3] }
+    CSV.foreach('./db/scrapped_data.csv') { |row| @user << row[3] }
   end
 
   def follow_method
