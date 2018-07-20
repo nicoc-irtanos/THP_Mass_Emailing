@@ -36,10 +36,10 @@ To ensure smooth operations ;-), please follow all below instructions :
 
 In your terminal, please go into the directory where you would like to install this program and type:<br>
 ```
-git clone https://github.com/nicolasculerier/THP_Mass_Emailing.git<br>
-cd THP_Mass_Emailing<br>
-bundle install<br>
-touch .env<br> 
+git clone https://github.com/nicolasculerier/THP_Mass_Emailing.git
+cd THP_Mass_Emailing
+bundle install
+touch .env 
 ```
 Open .env with your favorite text editor and paste the below text. Make sure to put your access data before saving and quitting that file.
 ```
