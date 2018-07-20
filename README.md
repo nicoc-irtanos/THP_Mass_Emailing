@@ -4,7 +4,7 @@ This program is designed to scrap all email addresses of townhalls in the follow
 - Bouches-du-Rhône (13)
 - Morbihan (56)
 - Loire Atlantique (44)
-app.rb is the key file you have to load in the parent directory. The gitignore, rubocop and Gemfile do not need to be edited
+app.rb is the key file you have to load in the parent directory. The .gitignore, .rubocop.yml and Gemfile do not need to be edited
 
 It then send an email to each of these townhalls to raise their awareness about **The Hacking Project** , a French startup which seeks to re-shape education.
 
@@ -70,9 +70,10 @@ If you followed the installation instructions properly, you should be all set to
 
 Please ensure that your command line is still located in the THP_Mass_Emailing directory and run the following line :<br>
 ``` ruby app.rb```
-<br>We recommend you to go through each of the five steps in their number order.<br>
 
 and let yourself be guided by the menu…<br>
+We recommend you to go through each of the five steps in their number order.<br>
+
 Yes, it’s as simple as that… Crazy, right ?!
 
 Several Ruby Gems have been used to make that dream come true.<br>
