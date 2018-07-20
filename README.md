@@ -70,6 +70,7 @@ If you followed the installation instructions properly, you should be all set to
 
 Please ensure that your command line is still located in the THP_Mass_Emailing directory and run the following line :<br>
 ``` ruby app.rb```
+<br>We recommend you to go through each of the five steps in their number order.<br>
 
 and let yourself be guided by the menu…<br>
 Yes, it’s as simple as that… Crazy, right ?!
