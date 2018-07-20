@@ -1,9 +1,7 @@
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
-require 'json'
 require 'pp'
-require "google_drive"
 require 'csv'
 require_relative "./scrapper.rb"
 

@@ -4,7 +4,6 @@ require 'gmail'
 require 'csv'
 
 class Mailer
-
   def mass_emailing
     @townhalls_names = [] # Mets les éléments de la deuxième colonne du CSV dans une array
     CSV.foreach("./db/scrapped_data.csv") { |row| @townhalls_names << row[1] }

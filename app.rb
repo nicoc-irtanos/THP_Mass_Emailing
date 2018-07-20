@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
@@ -19,13 +18,4 @@ load "./lib/app/townhalls_follower.rb"
 load "./lib/views/index.rb"
 load "./lib/views/done.rb"
 
-
-class App
-  def initialize
-    start = Index.new
-    start.launch
-    
-  end
-end
-
-App.new
+Index.new.launch
