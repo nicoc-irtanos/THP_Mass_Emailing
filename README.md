@@ -11,13 +11,13 @@ re-shape education
 
 ## Authors
 
-Who are we ?
-Just some random geniuses who go by those names :
-<a href="https://github.com/skageraz">Jérémy Rak</a>
-<a href="https://github.com/Hadia22/">Hadia Bouria</a>
-<a href="https://github.com/Dyf-Tfh">Nicolas Zhao</a>
-<a href="https://github.com/TheFSilver">François Dasylva</a>
-<a href="https://github.com/bbpucca">Valérie Chang</a>
+Who are we ?<br>
+Just some random geniuses who go by those names :<br>
+<a href="https://github.com/skageraz">Jérémy Rak</a><br>
+<a href="https://github.com/Hadia22/">Hadia Bouria</a><br>
+<a href="https://github.com/Dyf-Tfh">Nicolas Zhao</a><br>
+<a href="https://github.com/TheFSilver">François Dasylva</a><br>
+<a href="https://github.com/bbpucca">Valérie Chang</a><br>
 <a href="https://github.com/nicolasculerier">Nicolas Culerier</a>
 
 ## Repository's structure and program's logic
