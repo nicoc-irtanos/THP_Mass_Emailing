@@ -1,5 +1,34 @@
+# Mass_emailing program
 
+This program is designed to scrap all email addresses of townhalls in the following French departments :
+- Bouches-du-Rhône (13)
+- Morbihan (56)
+- Loire Atlantique (44)
 app.rb is the key file you have to load in the parent directory. The gitignore, rubocop and Gemfile do not need to be edited
+
+It then send an email to each of these townhalls to raise their awareness about **The Hacking Project** , a French startup which seeks to re-shape education.
+
+## Authors
+
+Who are we ?<br> 
+Just some random geniuses who go by those names :<br> 
+<a href="https://github.com/skageraz">Jérémy Rak</a><br> 
+<a href="https://github.com/Hadia22/">Hadia Bouria</a><br> 
+<a href="https://github.com/Dyf-Tfh">Nicolas Zhao</a><br> 
+<a href="https://github.com/TheFSilver">François Dasylva</a><br> 
+<a href="https://github.com/bbpucca">Valérie Chang</a><br> 
+<a href="https://github.com/nicolasculerier">Nicolas Culerier</a>
+
+## Repository's structure and program's logic
+
+the db directory contains the necessary csv file where we store and from which we later use the data to send emails to corresponding townhalls
+
+the lib directory contains two sub-directories: 
+
+- app: here are stored files each one dealing with a specific task, scrapping, mailing, twittering (yeah I just made up that verb)
+
+- views: allows you to have a nice interface to enhance your user-experience! You don't need to edit them.
+- app.rb is the key file you have to load in the parent directory. The gitignore, rubocop and Gemfile do not need to be edited
 
 ## How to install it ?
 
